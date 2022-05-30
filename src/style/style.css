@@ -1,0 +1,266 @@
+@charset "utf-8";
+
+body {
+  background-color: #eae8fe;
+}
+
+img-item {
+  display: block;
+}
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 28px;
+  padding-top: 248px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app .vending-machine,
+#app .my-info {
+  width: 360px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+#app .title-logo {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  max-width: 386px;
+  height: 180px;
+  background-image: url("../images/Logo_img.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+#app .vending-machine {
+  padding: 31px 27px 28px;
+}
+
+.vending-machine .list-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.vending-machine .list-items li {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .list-items li:active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #6327fe;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.vending-machine .list-items li.sold-out::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: 60px 46px;
+  background-position: center;
+  background-image: url("../images/Sold-out.png");
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.vending-machine .list-items li.sold-out::after {
+  content: "품절";
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 1px;
+  color: transparent;
+}
+
+.vending-machine .list-items li.sold-out {
+  pointer-events: none;
+}
+
+.vending-machine .button-item {
+  padding: 11px 0 9px;
+}
+
+.vending-machine .list-items .img-item {
+  width: 36px;
+  margin: 0 auto;
+}
+
+.vending-machine .title-item {
+  display: block;
+  line-height: 13px;
+  font-size: 9px;
+  margin: 6px 0 7px;
+}
+
+.vending-machine .item-price {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12px;
+  background-color: #6327fe;
+  border-radius: 50px;
+  color: #fff;
+}
+
+.container-buy .text-balance,
+.container-buy .input-put,
+.container-buy .list-items-screen {
+  padding: 7px 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.container-buy .button-return,
+.container-buy .button-put,
+.container-buy .button-get {
+  font-size: 13px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .container-buy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.container-buy .text-balance {
+  font-size: 14px;
+  grid-column: 1/3;
+  background-color: #eae8fe;
+}
+
+.container-buy .text-balance .number-balance {
+  float: right;
+}
+
+.container-buy .input-put {
+  grid-column: 1/3;
+  border: 1px solid #bdbdbd;
+}
+
+.container-buy .button-get {
+  font-weight: 700;
+  background-color: #6327fe;
+  color: #fff;
+}
+
+.container-buy .list-items-screen {
+  grid-column: 1/3;
+  height: 106px;
+  overflow-y: scroll;
+  border: 1px solid #bdbdbd;
+  background-color: #eae8fe;
+}
+
+.list-items-screen li {
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.list-items-screen li + li {
+  margin-top: 6px;
+}
+
+.list-items-screen .img-item,
+.list-items-screen .text-item {
+  float: left;
+}
+
+.list-items-screen .img-item {
+  width: 18px;
+}
+
+.list-items-screen .text-item {
+  margin-left: 10px;
+  font-size: 9px;
+  line-height: 33px;
+}
+
+.list-items-screen .counter-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  float: right;
+}
+
+#app .my-info {
+  background-color: #eae8fe;
+}
+
+.my-info .container-mymoney {
+  padding: 6px 10px;
+  line-height: 20px;
+  background-color: #fff;
+}
+
+.my-info .text-mymoney {
+  padding: 6px 10px;
+  line-height: 20px;
+  background-color: #eae8fe;
+  border-radius: 5px;
+}
+
+.my-info .number-mymoney {
+  float: right;
+  font-weight: 700;
+}
+
+.my-info .container-items {
+  margin-top: 20px;
+  padding: 25px 27px 32px;
+  background-color: #fff;
+}
+
+.my-info .title-myitem {
+  display: block;
+  text-align: center;
+  margin-bottom: 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.container-items .list-items-screen {
+  height: 364px;
+  overflow-y: scroll;
+  padding: 12px;
+  background-color: #eae8fe;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.container-items .text-total {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  line-height: 17px;
+  margin-top: 10px;
+}
