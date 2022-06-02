@@ -13,3 +13,30 @@ const listItemsScreen = containerItems.querySelector(".list-items-screen");
 const myInfo = document.querySelector(".my-info");
 const numMyMoney = myInfo.querySelector(".number-mymoney");
 const buyItemsScreen = myInfo.querySelector(".list-item-screen");
+
+// 1. 입금 기능
+// [] 입금액 input 값을 받은 후 '입금' 버튼 누르면 잔액칸으로 값이 이동
+
+// 잔액을 소지금에 포함하기
+function getChange() {
+  numMyMoney.textContent =
+    parseInt(numBalance.innerText.slice(0, -2)) +
+    parseInt(numMyMoney.innerText) +
+    " 원";
+  numBalance.textContent = " 원";
+}
+
+// 입금하기
+function deposit() {
+  if (inputDeposit.value) {
+    numBalance.textContent = parseInt(inputDeposit.value) + "원";
+    inputDeposit.value = "";
+  } 
+  console.log(inputDeposit.value);
+  // else if (inputDeposit.value > 30000) {
+  //   alert('소지금이 부족합니다 ㅜㅜ')
+  // }
+}
+btnPut.addEventListener("click", deposit);
+btnPut.addEventListener("click", deposit);
+
