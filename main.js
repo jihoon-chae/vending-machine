@@ -1,6 +1,6 @@
 // 변수 설정
 const vendingMachine = document.querySelector(".vending-machine");
-const Items = vendingMachine.querySelectorAll("li");
+const Items = vendingMachine.querySelectorAll("list-items li");
 const contBuy = vendingMachine.querySelector(".container-buy");
 const btnReturn = vendingMachine.querySelector(".button-return");
 const numBalance = contBuy.querySelector(".number-balance");
@@ -20,23 +20,22 @@ const buyItemsScreen = myInfo.querySelector(".list-item-screen");
 // 잔액을 소지금에 포함하기
 function getChange() {
   numMyMoney.textContent =
-    parseInt(numBalance.innerText.slice(0, -2)) +
-    parseInt(numMyMoney.innerText) +
+    parseInt(numBalance.textContent.slice(0, -2)) +
+    parseInt(numMyMoney.textContent) +
     " 원";
   numBalance.textContent = " 원";
 }
 
 // 입금하기
 function deposit() {
-  if (inputDeposit.value) {
+  if (parseInt(inputDeposit.value) > 30000) {
+    alert("소지금이 부족합니다 ㅜㅜ") // 3만원 초과 입금시 소지금 부족 알림창 띄우기
+  } else if (parseInt(inputDeposit.value) <= 30000) { // 3만원 이하 입금식 해당 금액을 잔액으로 이동
     numBalance.textContent = parseInt(inputDeposit.value) + "원";
     inputDeposit.value = "";
-  } 
-  console.log(inputDeposit.value);
-  // else if (inputDeposit.value > 30000) {
-  //   alert('소지금이 부족합니다 ㅜㅜ')
-  // }
+  }
+ 
 }
 btnPut.addEventListener("click", deposit);
-btnPut.addEventListener("click", deposit);
 
+// 입금액 만큼 소지금에서 차감하기
